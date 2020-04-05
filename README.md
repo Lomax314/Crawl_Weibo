@@ -22,7 +22,7 @@ user3_info_dict
 
 ```
 2. 用户信息字典含义
-> 注：在用户信息字典的所有键中，‘简介’（含）之后的键不一定能抓取到对应的值
+> 注：如果不能解决微博的反爬虫机制的话，'created_time'，'birthday'和'credit'或许需要被舍弃，因为都是需要cookies登录之后才能爬取这几个信息，但是一个cookies频繁请求网页的话会触发反爬虫机制，封一段时间账号。其实我觉得这三个键里面可能有点用处的是'created_time'和'credit'，但是要是实在爬不了，目前没啥办法实在。（随机换IP代理和User-Agent的方法已经用上了
 ``` python
 user_info_dict = {
         'id': '',  # 用户id，值为int类型
@@ -31,14 +31,14 @@ user_info_dict = {
         'followers_count': '',  # 粉丝数
         'statuses_count': '',  # 微博数
         'verified': '',  # 是否认证
-        'verified_type': '',  # 认证类型。-1：未认证；0：黄V；1：红V（推测）；2：蓝V
+        'verified_type': '',  # 认证类型。-1：未认证；verify_yellow：黄V；verify_blue：蓝V；verify_red：红V（还未出现过）
         'verified_reason': '',  # 认证理由
         'gender': '',  # 性别。m：男；f：女
         'description': '',  # 简介
         'created_time': '',  # 注册时间/审核时间（对蓝V来说
         'location': '',  # 所在地
         'birthday': '',  # 生日
-        'credit': ''  # 阳光信用：信用极好、信用较好、信用一般（信用较差）
+        'credit': ''  # 阳光信用：信用极好、信用较好、信用一般（和信用较差）
     }
 ```
 ### 谣言数据文件
