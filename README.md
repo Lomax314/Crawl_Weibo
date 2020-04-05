@@ -80,14 +80,14 @@ comment_tree3_info_dict
 comment_tree_info_dict = {
     'rumor_id': '',  # 谣言id
     'count_node': '',  # 树的节点个数
-    'depth': '',  # 树的（最大）深度
     'count_leaf': '',  # 树的叶子节点个数
+    'depth': '',  # 树的（最大）深度
     'avg_depth': '',  # 树的平均深度
 }
 ```
 ### 评论树数据文件
 1.数据存储格式
-> 注：评论树数据文件的文件名格式为：rumor_id.json，是一个json文件
+> 注：考虑到源微博作为根节点的话，树最深最深为8层。评论树数据文件的文件名格式为：rumor_id.json，是一个json文件
 ```
 {
   'rumor_id': [
